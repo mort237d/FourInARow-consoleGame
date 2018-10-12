@@ -17,10 +17,8 @@ namespace FourInARow_consoleGame
              * - Use a two dimensional array
              * 
              */
-            //Morten er her
-            // hej
 
-            FourInARow game = new FourInARow(); // thoma var her!
+            FourInARow game = new FourInARow();
         }
 
 
