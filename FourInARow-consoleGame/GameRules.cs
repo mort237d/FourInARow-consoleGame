@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,12 +9,25 @@ namespace FourInARow_consoleGame
 {
     class GameRules
     {
-
+        //TODO if full board
+        //TODO if vertical is full
         FourInARow Game;
         private int counter;
         public GameRules(FourInARow game)
         {
             Game = game;
+        }
+
+        //TODO Diagonal 4 in a row
+        public void CheckDiagonal()
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    
+                }
+            }
         }
 
         public void CheckRow()
@@ -22,14 +36,8 @@ namespace FourInARow_consoleGame
             {
                 for (int i = 0; i < 6; i++)
                 {
-                    if (Game.twoDimensionalArray[j, i] == Game.currentPlayer.brik)
-                    {
-                        counter++;
-                    }
-                    else
-                    {
-                        counter = 0;
-                    }
+                    if (Game.twoDimensionalArray[j, i] == Game.currentPlayer.brik) counter++;
+                    else counter = 0;
 
                     if (counter == 4)
                     {
@@ -46,14 +54,8 @@ namespace FourInARow_consoleGame
             {
                 for (int i = 0; i < 6; i++)
                 {
-                    if (Game.twoDimensionalArray[i, j] == Game.currentPlayer.brik)
-                    {
-                        counter++;
-                    }
-                    else
-                    {
-                        counter = 0;
-                    }
+                    if (Game.twoDimensionalArray[i, j] == Game.currentPlayer.brik) counter++;
+                    else counter = 0;
 
                     if (counter == 4)
                     {
@@ -66,25 +68,9 @@ namespace FourInARow_consoleGame
 
         public void CheckForAWinner()
         {
+            //CheckDiagonal();
             CheckColumn();
             CheckRow();
-        }
-
-        public void CheckBrik()
-        {
-            for (int i = 0; i < 6; i++)
-            {
-                for (int j = 0; j < 6; j++)
-                {
-                    if (Game.twoDimensionalArray[i, j] == Game.players[0].brik)
-                    {
-                        counter++;
-                    }
-                }
-            }
-
-            Console.WriteLine(counter);
-            counter = 0;
         }
     }
 }
