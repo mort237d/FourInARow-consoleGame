@@ -8,8 +8,8 @@ namespace FourInARow_consoleGame
 {
     class Player
     {
-        private string navn;
-        private char brik;
+        public string navn;
+        public char brik;
         public Player(char brik, string navn)
         {
             this.brik = brik;
