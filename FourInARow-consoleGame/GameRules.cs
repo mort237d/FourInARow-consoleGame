@@ -22,7 +22,7 @@ namespace FourInARow_consoleGame
             {
                 for (int i = 0; i < 6; i++)
                 {
-                    if (Game.twoDimensionalArray[j, i] == Game.players[0].brik)
+                    if (Game.twoDimensionalArray[j, i] == Game.currentPlayer.brik)
                     {
                         counter++;
                     }
@@ -34,7 +34,7 @@ namespace FourInARow_consoleGame
                     if (counter == 4)
                     {
                         Game.gameOver = true;
-                        Console.WriteLine(Game.players[0].navn + " har vundet");
+                        Console.WriteLine(Game.currentPlayer.navn + " har vundet");
                     }
                 }
             }
@@ -46,7 +46,7 @@ namespace FourInARow_consoleGame
             {
                 for (int i = 0; i < 6; i++)
                 {
-                    if (Game.twoDimensionalArray[i, j] == Game.players[0].brik)
+                    if (Game.twoDimensionalArray[i, j] == Game.currentPlayer.brik)
                     {
                         counter++;
                     }
@@ -58,7 +58,7 @@ namespace FourInARow_consoleGame
                     if (counter == 4)
                     {
                         Game.gameOver = true;
-                        Console.WriteLine(Game.players[0].navn + " har vundet");
+                        Console.WriteLine(Game.currentPlayer.navn + " har vundet");
                     }
                 }
             }

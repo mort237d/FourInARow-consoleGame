@@ -9,7 +9,7 @@ namespace FourInARow_consoleGame
     class FourInARow
     {
         public List<Player> players = new List<Player>();
-        private Player currentPlayer;
+        public Player currentPlayer;
         private string navn;
         private int position;
         public bool gameOver = false;
