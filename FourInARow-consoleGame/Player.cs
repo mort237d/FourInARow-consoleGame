@@ -9,8 +9,8 @@ namespace FourInARow_consoleGame
     class Player
     {
         public string navn;
-        public char brik;
-        public Player(char brik, string navn)
+        public string brik;
+        public Player(string brik, string navn)
         {
             this.brik = brik;
             this.navn = navn;

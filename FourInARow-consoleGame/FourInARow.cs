@@ -13,17 +13,34 @@ namespace FourInARow_consoleGame
         private string navn;
         private int position;
         private bool gameOver = false;
-        char[,] twoDimensionalArray = new char[6,6];
+        string[,] twoDimensionalArray = new string[6,6];
 
         public FourInARow()
         {
+            for (int i = 0; i < 6; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    twoDimensionalArray[i, j] = "|   |";
+                }
+            }
+
+            for (int i = 0; i < 6; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    Console.Write(twoDimensionalArray[i, j]);
+                }
+
+                Console.WriteLine();
+            }
             //Intro();
             //            Console.WriteLine(" (1) (2) (3) (4) (5) (6)");
             //            Console.WriteLine("+-----------------------+");
             //            for (int i = 0; i < 6; i++) Console.WriteLine("|   |   |   |   |   |   |");
             //            Console.WriteLine("+-----------------------+");
-            players.Add(new Player('B', "Daniel"));
-            players.Add(new Player('R', "Thomas"));
+            players.Add(new Player("B", "Daniel"));
+            players.Add(new Player("R", "Thomas"));
             currentPlayer = players.First();
             while (!gameOver)
             {
@@ -57,34 +74,10 @@ namespace FourInARow_consoleGame
             Console.WriteLine("Velkommen til Fire På Stribe!");
             Console.WriteLine("Hvilket navn har spiller 1 idag?");
             navn = Console.ReadLine();
-            players.Add(new Player('R', navn));
+            players.Add(new Player("R", navn));
             Console.WriteLine("Hvilket navn har spiller 2 idag?");
             navn = Console.ReadLine();
-            players.Add(new Player('B', navn));
-        }
-
-
-        /// <summary>
-        /// get a single value from our two dimensional array
-        /// </summary>
-        /// <param name="x">x axis</param>
-        /// <param name="y">y axis</param>
-        /// <returns></returns>
-        public char getSingleValue(int x, int y)
-        {
-            return twoDimensionalArray[x, y];
-        }
-
-        /// <summary>
-        /// Set a single value for our two dimensional array
-        /// </summary>
-        /// <param name="x">x axis position</param>
-        /// <param name="y">y axis position</param>
-        /// <param name="value">the char you want to set</param>
-        /// <returns></returns>
-        public void setSingleValue(int x, int y, char value)
-        {
-             twoDimensionalArray[x, y] = value;
+            players.Add(new Player("B", navn));
         }
 
         private void nextPlayer()
