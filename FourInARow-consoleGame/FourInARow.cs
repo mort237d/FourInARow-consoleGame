@@ -49,7 +49,7 @@ namespace FourInARow_consoleGame
                     }
                 }
                 Console.Clear();
-                gameRules.CheckRow();
+                gameRules.CheckForAWinner();
                 drawBoard();
                 
                 nextPlayer();
