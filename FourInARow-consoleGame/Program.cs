@@ -15,10 +15,10 @@ namespace FourInARow_consoleGame
              * - Do not add anything to the main class!
              * - Follow the '10/100 dogma': No method longer than 10 lines and no class longer than 100 lines (every line counts!)
              * - Use a two dimensional array
-             *
+             * 
              */
 
-            FourInARow game = new FourInARow();
+            FourInARow game = new FourInARow(); // thoma var her!
         }
 
 
