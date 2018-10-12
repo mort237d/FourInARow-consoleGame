@@ -62,7 +62,25 @@ namespace FourInARow_consoleGame
             Console.WriteLine("+----------------------------+");
             for (int i = 0; i < 6; i++)
             {
-                for (int j = 0; j < 6; j++) Console.Write(twoDimensionalArray[i, j]);
+                for (int j = 0; j < 6; j++)
+                {
+                    if (twoDimensionalArray[i, j] == "| B |")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write(twoDimensionalArray[i, j]);
+                        Console.ResetColor();
+                    }
+                    else if (twoDimensionalArray[i, j] == "| R |")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write(twoDimensionalArray[i, j]);
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.Write(twoDimensionalArray[i, j]);
+                    }
+                }
                 Console.WriteLine();
             }
             Console.WriteLine("+----------------------------+");

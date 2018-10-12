@@ -18,21 +18,24 @@ namespace FourInARow_consoleGame
 
         public void CheckRow()
         {
-            for (int i = 0; i < 6; i++)
+            for (int j = 0; j < 6; j++)
             {
-                if (Game.twoDimensionalArray[5, i] == Game.players[0].brik)
+                for (int i = 0; i < 6; i++)
                 {
-                    counter++;
-                }
-                else
-                { 
-                 counter = 0;
-                }
+                    if (Game.twoDimensionalArray[j, i] == Game.players[0].brik)
+                    {
+                        counter++;
+                    }
+                    else
+                    {
+                        counter = 0;
+                    }
 
-                if (counter == 4)
-                {
-                    Game.gameOver = true;
-                    Console.WriteLine(Game.players[0].navn + " har vundet");
+                    if (counter == 4)
+                    {
+                        Game.gameOver = true;
+                        Console.WriteLine(Game.players[0].navn + " har vundet");
+                    }
                 }
             }
         }
