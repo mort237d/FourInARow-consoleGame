@@ -13,7 +13,7 @@ namespace FourInARow_consoleGame
         private string navn;
         private int position;
         private bool gameOver = false;
-        string[,] twoDimensionalArray = new string[6,6];
+        private string[,] twoDimensionalArray = new string[6,6];
 
         public FourInARow()
         {
@@ -24,19 +24,19 @@ namespace FourInARow_consoleGame
                     twoDimensionalArray[i, j] = "|   |";
                 }
             }
-
-           
+            
             //Intro();
-            drawBoard();
+            
             players.Add(new Player("| B |", "Daniel"));
             players.Add(new Player("| R |", "Thomas"));
             currentPlayer = players.First();
+            drawBoard();
+
             while (!gameOver)
             {
                 Console.WriteLine("Hvor vil " + currentPlayer.navn + " sætte sin brik");
                 position = Convert.ToInt32(Console.ReadLine());
-//                twoDimensionalArray[0, 5] = 'B';
-//                twoDimensionalArray[0, 4] = 'R';
+
                 for (int i = 5; i >= 0; i--)
                 {
                     if (twoDimensionalArray[i , position - 1] != players[0].brik && twoDimensionalArray[i , position - 1] != players[1].brik)
@@ -45,6 +45,7 @@ namespace FourInARow_consoleGame
                         break;
                     }
                 }
+                Console.Clear();
                 drawBoard();
                 
                 nextPlayer();
@@ -57,26 +58,21 @@ namespace FourInARow_consoleGame
             Console.WriteLine("+----------------------------+");
             for (int i = 0; i < 6; i++)
             {
-                for (int j = 0; j < 6; j++)
-                {
-                    Console.Write(twoDimensionalArray[i, j]);
-                }
-
+                for (int j = 0; j < 6; j++) Console.Write(twoDimensionalArray[i, j]);
                 Console.WriteLine();
             }
-
             Console.WriteLine("+----------------------------+");
         }
 
         private void Intro()
         {
-            Console.WriteLine("Velkommen til Fire På Stribe!");
-            Console.WriteLine("Hvilket navn har spiller 1 idag?");
+            Console.WriteLine("Velkommen til Fire På Stribe! \nHvilket navn har spiller 1 idag?");
             navn = Console.ReadLine();
             players.Add(new Player("R", navn));
             Console.WriteLine("Hvilket navn har spiller 2 idag?");
             navn = Console.ReadLine();
             players.Add(new Player("B", navn));
+            drawBoard();
         }
 
         private void nextPlayer()
