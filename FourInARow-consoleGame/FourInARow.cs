@@ -8,15 +8,18 @@ namespace FourInARow_consoleGame
 {
     class FourInARow
     {
-        private List<Player> players = new List<Player>();
+        public List<Player> players = new List<Player>();
         private Player currentPlayer;
         private string navn;
         private int position;
-        private bool gameOver = false;
-        private string[,] twoDimensionalArray = new string[6,6];
+        public bool gameOver = false;
+        public string[,] twoDimensionalArray = new string[6,6];
+        private GameRules gameRules;
 
         public FourInARow()
         {
+            gameRules = new GameRules(this);
+
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 6; j++)
@@ -46,6 +49,7 @@ namespace FourInARow_consoleGame
                     }
                 }
                 Console.Clear();
+                gameRules.CheckRow();
                 drawBoard();
                 
                 nextPlayer();
