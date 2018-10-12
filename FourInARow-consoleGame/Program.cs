@@ -18,6 +18,7 @@ namespace FourInARow_consoleGame
              * 
              */
             //Morten er her
+            // hej
 
             FourInARow game = new FourInARow(); // thoma var her!
         }
