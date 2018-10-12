@@ -27,8 +27,8 @@ namespace FourInARow_consoleGame
             
             //Intro();
             
-            players.Add(new Player("| B |", "Daniel"));
-            players.Add(new Player("| R |", "Thomas"));
+            players.Add(new Player("| B |", "Daniel", this));
+            players.Add(new Player("| R |", "Thomas", this));
             currentPlayer = players.First();
             drawBoard();
 
@@ -66,13 +66,17 @@ namespace FourInARow_consoleGame
 
         private void Intro()
         {
-            Console.WriteLine("Velkommen til Fire På Stribe! \nHvilket navn har spiller 1 idag?");
-            navn = Console.ReadLine();
-            players.Add(new Player("R", navn));
-            Console.WriteLine("Hvilket navn har spiller 2 idag?");
-            navn = Console.ReadLine();
-            players.Add(new Player("B", navn));
+            Console.WriteLine("Velkommen til Fire På Stribe!");
+            AddNewPlayer(1, "| R |");
+            AddNewPlayer(2, "| B |");
             drawBoard();
+        }
+
+        private void AddNewPlayer(int n, string brik)
+        {
+            Console.WriteLine("Hvilket navn har spiller " + n + " idag?");
+            navn = Console.ReadLine();
+            players.Add(new Player(brik, navn, this));
         }
 
         private void nextPlayer()

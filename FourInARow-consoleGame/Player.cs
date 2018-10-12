@@ -10,10 +10,12 @@ namespace FourInARow_consoleGame
     {
         public string navn;
         public string brik;
-        public Player(string brik, string navn)
+        public FourInARow game;
+        public Player(string brik, string navn, FourInARow game)
         {
             this.brik = brik;
             this.navn = navn;
+            this.game = game;
         }
 
     }
