@@ -10,7 +10,6 @@ namespace FourInARow_consoleGame
     class GameRules
     {
         //TODO if full board
-        //TODO if vertical is full
         FourInARow Game;
         private int counter;
         public GameRules(FourInARow game)

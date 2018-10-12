@@ -41,7 +41,7 @@ namespace FourInARow_consoleGame
                 noMoreSpace = false;
                 Console.WriteLine("Hvor vil " + currentPlayer.navn + " sætte sin brik");
                 position = Convert.ToInt32(Console.ReadLine());
-
+                
                 for (int i = 5; i >= 0; i--)
                 {
                     if (twoDimensionalArray[i , position - 1] != players[0].brik && twoDimensionalArray[i , position - 1] != players[1].brik)
@@ -49,8 +49,7 @@ namespace FourInARow_consoleGame
                         twoDimensionalArray[i , position - 1] = currentPlayer.brik;
                         break;
                     }
-
-                    else if (twoDimensionalArray[0, i] != "|   |")
+                    else if (twoDimensionalArray[0, position - 1] != "|   |")
                     {
                         noMoreSpace = true;
                         break;
@@ -58,7 +57,7 @@ namespace FourInARow_consoleGame
 
                 }
                 Console.Clear();
-                if (noMoreSpace) Console.WriteLine("No more space");
+                if (noMoreSpace) Console.WriteLine("No more space at " + position);
                 gameRules.CheckForAWinner();
                 drawBoard();
 
