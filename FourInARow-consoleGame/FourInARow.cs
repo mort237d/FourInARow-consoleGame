@@ -25,22 +25,11 @@ namespace FourInARow_consoleGame
                 }
             }
 
-            for (int i = 0; i < 6; i++)
-            {
-                for (int j = 0; j < 6; j++)
-                {
-                    Console.Write(twoDimensionalArray[i, j]);
-                }
-
-                Console.WriteLine();
-            }
+           
             //Intro();
-            //            Console.WriteLine(" (1) (2) (3) (4) (5) (6)");
-            //            Console.WriteLine("+-----------------------+");
-            //            for (int i = 0; i < 6; i++) Console.WriteLine("|   |   |   |   |   |   |");
-            //            Console.WriteLine("+-----------------------+");
-            players.Add(new Player("B", "Daniel"));
-            players.Add(new Player("R", "Thomas"));
+            drawBoard();
+            players.Add(new Player("| B |", "Daniel"));
+            players.Add(new Player("| R |", "Thomas"));
             currentPlayer = players.First();
             while (!gameOver)
             {
@@ -50,23 +39,33 @@ namespace FourInARow_consoleGame
 //                twoDimensionalArray[0, 4] = 'R';
                 for (int i = 5; i >= 0; i--)
                 {
-                    if (twoDimensionalArray[position - 1, i] != players[0].brik && twoDimensionalArray[position - 1, i] != players[1].brik)
+                    if (twoDimensionalArray[i , position - 1] != players[0].brik && twoDimensionalArray[i , position - 1] != players[1].brik)
                     {
-                        twoDimensionalArray[position - 1, i] = currentPlayer.brik;
+                        twoDimensionalArray[i , position - 1] = currentPlayer.brik;
                         break;
                     }
                 }
-
-                for (int i = 0; i <= 5; i++)
-                {
-                    for (int j = 0; j <= 5; j++)
-                    {
-                        Console.WriteLine("[" + i + "," + j + "]");
-                        Console.WriteLine(twoDimensionalArray[i, j]);
-                    }
-                }
+                drawBoard();
+                
                 nextPlayer();
             }
+        }
+
+        private void drawBoard()
+        {
+            Console.WriteLine(" (1)  (2)  (3)  (4)  (5)  (6)");
+            Console.WriteLine("+----------------------------+");
+            for (int i = 0; i < 6; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    Console.Write(twoDimensionalArray[i, j]);
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("+----------------------------+");
         }
 
         private void Intro()
