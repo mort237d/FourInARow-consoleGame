@@ -10,21 +10,51 @@ namespace FourInARow_consoleGame
     class GameRules
     {
         //TODO if full board
-        FourInARow Game;
+        FourInARow game;
         private int counter;
         public GameRules(FourInARow game)
         {
-            Game = game;
+           this. game = game;
         }
 
         //TODO Diagonal 4 in a row
         public void CheckDiagonal()
         {
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i <= 3; i++)
             {
-                for (int j = 0; j < 6; j++)
+                RightAndDown(i);
+                RightAndUp(i);
+            }
+        }
+
+        private void RightAndUp(int i)
+        {
+            for (int j = 3; j <= 5; j++)
+            {
+                if (game.twoDimensionalArray[j, i] == game.currentPlayer.brik
+                    && game.twoDimensionalArray[j, i] == game.twoDimensionalArray[j - 1, i + 1]
+                    && game.twoDimensionalArray[j, i] == game.twoDimensionalArray[j - 2, i + 2]
+                    && game.twoDimensionalArray[j, i] == game.twoDimensionalArray[j - 3, i + 3])
                 {
-                    
+                    game.gameOver = true;
+                    Console.WriteLine(game.currentPlayer.navn + " har vundet");
+                    break;
+                }
+            }
+        }
+
+        private void RightAndDown(int i)
+        {
+            for (int j = 0; j <= 2; j++)
+            {
+                if (game.twoDimensionalArray[j, i] == game.currentPlayer.brik
+                    && game.twoDimensionalArray[j, i] == game.twoDimensionalArray[j + 1, i + 1]
+                    && game.twoDimensionalArray[j, i] == game.twoDimensionalArray[j + 2, i + 2]
+                    && game.twoDimensionalArray[j, i] == game.twoDimensionalArray[j + 3, i + 3])
+                {
+                    game.gameOver = true;
+                    Console.WriteLine(game.currentPlayer.navn + " har vundet");
+                    break;
                 }
             }
         }
@@ -35,13 +65,13 @@ namespace FourInARow_consoleGame
             {
                 for (int i = 0; i < 6; i++)
                 {
-                    if (Game.twoDimensionalArray[j, i] == Game.currentPlayer.brik) counter++;
+                    if (game.twoDimensionalArray[j, i] == game.currentPlayer.brik) counter++;
                     else counter = 0;
 
                     if (counter == 4)
                     {
-                        Game.gameOver = true;
-                        Console.WriteLine(Game.currentPlayer.navn + " har vundet");
+                        game.gameOver = true;
+                        Console.WriteLine(game.currentPlayer.navn + " har vundet");
                     }
                 }
             }
@@ -53,13 +83,13 @@ namespace FourInARow_consoleGame
             {
                 for (int i = 0; i < 6; i++)
                 {
-                    if (Game.twoDimensionalArray[i, j] == Game.currentPlayer.brik) counter++;
+                    if (game.twoDimensionalArray[i, j] == game.currentPlayer.brik) counter++;
                     else counter = 0;
 
                     if (counter == 4)
                     {
-                        Game.gameOver = true;
-                        Console.WriteLine(Game.currentPlayer.navn + " har vundet");
+                        game.gameOver = true;
+                        Console.WriteLine(game.currentPlayer.navn + " har vundet");
                     }
                 }
             }
@@ -67,7 +97,7 @@ namespace FourInARow_consoleGame
 
         public void CheckForAWinner()
         {
-            //CheckDiagonal();
+            CheckDiagonal();
             CheckColumn();
             CheckRow();
         }
