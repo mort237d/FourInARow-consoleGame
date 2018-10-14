@@ -28,19 +28,7 @@ namespace FourInARow_consoleGame
         {
             while (!gameOver)
             {
-                for (int i = 0; i < 6; i++)
-                {
-                    if (twoDimensionalArray[0, i] != "|   |")
-                    {
-                        counter++;
-                        if (counter == 6)
-                        {
-                            gameOver = true;
-                            Console.WriteLine("Ikke flere mulige træk, da pladen er fuld!");
-                        }
-                        else counter = 0;
-                    }
-                }
+                gameRules.CheckForFullBoard();
                 noMoreSpace = false;
                 Console.WriteLine("Hvor vil " + currentPlayer.navn + " sætte sin brik");
                 position = Convert.ToInt32(Console.ReadLine());

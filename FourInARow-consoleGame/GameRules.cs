@@ -74,6 +74,22 @@ namespace FourInARow_consoleGame
                 }
             }
         }
+        public void CheckForFullBoard()
+        {
+            for (int i = 0; i <= 5; i++)
+            {
+                if (game.twoDimensionalArray[0, i] != "|   |")
+                {
+                    counter++;
+                    if (counter == 6)
+                    {
+                        game.gameOver = true;
+                        Console.WriteLine("Ikke flere mulige træk, da pladen er fuld!");
+                    }
+                    else counter = 0;
+                }
+            }
+        }
         public void CheckForAWinner()
         {
             CheckDiagonal();
