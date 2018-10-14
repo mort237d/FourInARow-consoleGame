@@ -34,7 +34,7 @@ namespace FourInARow_consoleGame
                 gameRules.CheckForFullBoard();
                 noMoreSpace = false;
                 Console.WriteLine("Hvor vil " + currentPlayer.navn + " sætte sin brik");
-                position = Convert.ToInt32(Console.ReadLine());
+                position = Convert.ToInt32(Console.ReadKey().KeyChar.ToString());
                 CheckWhereToInsertBrik();
                 Console.Clear();
                 if (noMoreSpace) Console.WriteLine("No more space at " + position);
