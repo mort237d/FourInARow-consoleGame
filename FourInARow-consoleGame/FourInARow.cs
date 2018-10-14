@@ -24,6 +24,7 @@ namespace FourInARow_consoleGame
             for (int i = 0; i < 6; i++) for (int j = 0; j < 6; j++) twoDimensionalArray[i, j] = "|   |";
             for (int i = 0; i < 6; i++) ATopOfBoard[1, i] = " (" + (i + 1) + ") ";
             for (int i = 0; i < 6; i++) ATopOfBoard[0, i] = "     ";
+            Console.SetWindowSize(35, 15);
             Intro();
             GamePlay();
         }
