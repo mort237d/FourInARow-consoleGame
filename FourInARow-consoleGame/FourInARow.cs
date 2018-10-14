@@ -14,13 +14,16 @@ namespace FourInARow_consoleGame
         private int position, counter;
         public bool gameOver = false;
         bool noMoreSpace;
-        public string[,] twoDimensionalArray = new string[6,6];
+        public string[,] twoDimensionalArray = new string[6, 6];
+        public string[,] ATopOfBoard = new string[2, 6];
         private GameRules gameRules;
 
         public FourInARow()
         {
             gameRules = new GameRules(this);
             for (int i = 0; i < 6; i++) for (int j = 0; j < 6; j++) twoDimensionalArray[i, j] = "|   |";
+            for (int i = 0; i < 6; i++) ATopOfBoard[1, i] = " (" + (i + 1) + ") ";
+            for (int i = 0; i < 6; i++) ATopOfBoard[0, i] = "     ";
             Intro();
             GamePlay();
         }
@@ -36,7 +39,9 @@ namespace FourInARow_consoleGame
                 Console.Clear();
                 if (noMoreSpace) Console.WriteLine("No more space at " + position);
                 gameRules.CheckForAWinner();
+                ATopOfBoard[0, position - 1] = "  v  ";
                 drawBoard();
+                ATopOfBoard[0, position - 1] = "     ";
                 if (!noMoreSpace) nextPlayer();
             }
         }
@@ -58,7 +63,11 @@ namespace FourInARow_consoleGame
         }
         private void drawBoard()
         {
-            Console.WriteLine(" (1)  (2)  (3)  (4)  (5)  (6)");
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 6; j++) Console.Write(ATopOfBoard[i,j]);
+                Console.WriteLine();
+            }
             Console.WriteLine("+----------------------------+");
             for (int i = 0; i < 6; i++)
             {
