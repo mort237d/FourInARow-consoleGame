@@ -36,14 +36,23 @@ namespace FourInARow_consoleGame
                 noMoreSpace = false;
                 Console.WriteLine("Hvor vil " + currentPlayer.navn + " sætte sin brik");
                 position = Convert.ToInt32(Console.ReadKey().KeyChar.ToString());
-                CheckWhereToInsertBrik();
                 Console.Clear();
-                if (noMoreSpace) Console.WriteLine("No more space at " + position);
-                gameRules.CheckForAWinner();
-                ATopOfBoard[0, position - 1] = "  v  ";
-                drawBoard();
-                ATopOfBoard[0, position - 1] = "     ";
-                if (!noMoreSpace) nextPlayer();
+                if (position <= 6 && position != 0)
+                {
+                    CheckWhereToInsertBrik();
+                    Console.Clear();
+                    if (noMoreSpace) Console.WriteLine("No more space at " + position);
+                    gameRules.CheckForAWinner();
+                    ATopOfBoard[0, position - 1] = "  v  ";
+                    drawBoard();
+                    ATopOfBoard[0, position - 1] = "     ";
+                    if (!noMoreSpace) nextPlayer();
+                }
+                else
+                {
+                    Console.WriteLine("Ugyldigt input. Vælg et input mellem 1 og 6.");
+                    drawBoard();
+                }
             }
         }
         private void CheckWhereToInsertBrik()
