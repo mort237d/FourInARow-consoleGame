@@ -9,24 +9,21 @@ namespace FourInARow_consoleGame
 {
     class GameRules
     {
-        //TODO if full board
         FourInARow game;
         private int counter;
         public GameRules(FourInARow game)
         {
            this. game = game;
         }
-
         //TODO Diagonal 4 in a row
         public void CheckDiagonal()
         {
-            for (int i = 0; i <= 3; i++)
+            for (int i = 0; i <= 2; i++)
             {
                 RightAndDown(i);
                 RightAndUp(i);
             }
         }
-
         private void RightAndUp(int i)
         {
             for (int j = 3; j <= 5; j++)
@@ -42,7 +39,6 @@ namespace FourInARow_consoleGame
                 }
             }
         }
-
         private void RightAndDown(int i)
         {
             for (int j = 0; j <= 2; j++)
@@ -58,7 +54,6 @@ namespace FourInARow_consoleGame
                 }
             }
         }
-
         public void CheckRow()
         {
             for (int j = 0; j < 6; j++)
@@ -76,7 +71,6 @@ namespace FourInARow_consoleGame
                 }
             }
         }
-
         public void CheckColumn()
         {
             for (int j = 0; j < 6; j++)
@@ -94,7 +88,6 @@ namespace FourInARow_consoleGame
                 }
             }
         }
-
         public void CheckForAWinner()
         {
             CheckDiagonal();
