@@ -15,7 +15,6 @@ namespace FourInARow_consoleGame
         {
            this. game = game;
         }
-        //TODO Diagonal 4 in a row
         public void CheckDiagonal()
         {
             for (int i = 0; i <= 2; i++)

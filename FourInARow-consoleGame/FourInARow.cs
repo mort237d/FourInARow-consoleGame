@@ -10,7 +10,6 @@ namespace FourInARow_consoleGame
     {
         public List<Player> players = new List<Player>();
         public Player currentPlayer;
-        private string navn;
         private int position, counter;
         public bool gameOver = false;
         bool noMoreSpace;
@@ -110,8 +109,7 @@ namespace FourInARow_consoleGame
         private void AddNewPlayer(int n, string brik)
         {
             Console.WriteLine("Hvilket navn har spiller " + n + " idag?");
-            navn = Console.ReadLine();
-            players.Add(new Player(brik, navn, this));
+            players.Add(new Player(brik, Console.ReadLine(), this));
         }
         private void nextPlayer()
         {
